@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class ArraysAndHashing {
 
@@ -71,7 +68,7 @@ public class ArraysAndHashing {
 
         HashMap<Integer, Integer> temp = new HashMap<Integer, Integer>();
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
             int num = nums[i];
             int diff = target - num;
@@ -94,8 +91,21 @@ public class ArraysAndHashing {
 
     public List<List<String>> groupAnagrams(String[] strs) {
 
+        Map<String, List<String>> result = new HashMap<>();
 
-        return List.of();
+        for (String str : strs) {
+
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String sorted = new String(chars);
+            result.putIfAbsent(sorted, new ArrayList<>());
+
+            result.get(sorted).add(str);
+        }
+
+        return new ArrayList<>(result.values());
+
+
     }
 
 
