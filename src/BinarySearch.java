@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class BinarySearch {
 
 
@@ -38,11 +40,12 @@ public class BinarySearch {
 
     public int search(int[] nums, int target) {
 
-
         return target;
     }
 
 
 
-
 }
+
+
+
