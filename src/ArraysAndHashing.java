@@ -97,20 +97,34 @@ public class ArraysAndHashing {
 
     public List<List<String>> groupAnagrams(String[] strs) {
 
-        Map<String, List<String>> result = new HashMap<>();
+        // Declaring a HashMap, this stores the strings as keys and
+        // List of anagrams as values.
+        HashMap<String, List<String>> x = new HashMap<>();
 
+        // Declares a new String str and iterates over each string in the input array.
         for (String str : strs) {
 
+            // Takes the string values and converts it to a char array
+            // This is so we can sort the values
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            String sorted = new String(chars);
-            result.putIfAbsent(sorted, new ArrayList<>());
 
-            result.get(sorted).add(str);
+            // Then we transform the character array back into a string
+            String sortedString = new String(chars);
+
+            // If the HashMap does not already contain the String
+            if(!x.containsKey(sortedString)) {
+
+                // Added the string into the HashMap
+                x.put(sortedString, new ArrayList<>());
+            }
+
+            // This adds the original string to the list of anagrams for this sorted key
+            x.get(sortedString).add(str);
         }
 
-        return new ArrayList<>(result.values());
-
+        // Then return the values of the map as a list of lists
+        return new ArrayList<>(x.values());
 
     }
 
