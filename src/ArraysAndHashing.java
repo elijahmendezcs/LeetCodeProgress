@@ -66,22 +66,28 @@ public class ArraysAndHashing {
 
     public int[] twoSum(int[] nums, int target) {
 
-        HashMap<Integer, Integer> temp = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> x = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
 
-            int num = nums[i];
-            int diff = target - num;
+        for(int i = 0; i < nums.length; i++) {
 
-            if (temp.containsKey(diff)) {
+            // Calculating the complement (this is the number needed to reach the target)
+            int comp = target - nums[i];
 
-                return new int[]{temp.get(diff), i};
+            // This checks if the complement is already in the map.
+            if(x.containsKey(comp)) {
+
+                // If the complement is in the map,
+                // return the indices of the complement and the current number
+                return new int[] {x.get(comp), i};
             }
 
-            temp.put(num, i);
+            // If it is not found in the Map, this adds the number and the index to the map.
+            x.put(nums[i], i);
         }
 
-        return nums;
+        // This is only needed if NO solution is found (add anyway most likely a test case for this)
+        return new int[0];
     }
 
     // Given an array of strings strs, group all anagrams together into sublists.
