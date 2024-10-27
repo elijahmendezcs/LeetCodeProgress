@@ -45,9 +45,6 @@ public class TwoPointers {
 
         }
 
-
-
-
         return true;
     }
 
