@@ -24,7 +24,23 @@ public class LinkedList {
 
     public ListNode reverseList(ListNode head) {
 
-        return head;
+        // Declare prev to null, this will end up becoming the end of the linkedlist
+        ListNode prev = null;
+
+        // This is going to iterate through the list until head becomes null,
+        // which is at the end of the list
+        while (head != null) {
+
+            // This will repeat the process of bring null in front of prev until
+            // it iterates through the whole list
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+
+        // Then return prev
+        return prev;
     }
 
     // You are given the heads of two sorted linked lists list1 and list2.
