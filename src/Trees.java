@@ -25,7 +25,26 @@ public class Trees {
 
     public TreeNode invertTree(TreeNode root) {
 
-        return root;
+        // If the current node is null, it will return null (no tree to invert)
+        if (root == null) {
+
+            return null;
+        }
+
+        // Creating a new TreeNode to store the inverted structure,
+        // initialized with the same value as the root node
+        TreeNode node = new TreeNode(root.val);
+
+        // Using recursion we are inverting the left subtree of the current root,
+        // and assigning it to the right subtree of the new node (flipping it).
+        node.right = invertTree(root.left);
+
+        // Using recursion we are inverting the right subtree of the current root,
+        // and assigning it to the left subtree of the new node (flipping it)
+        node.left = invertTree(root.right);
+
+        // Returning the new node that now represents the root of the inverted subtree.
+        return node;
     }
 
 
