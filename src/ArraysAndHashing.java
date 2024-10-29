@@ -175,5 +175,32 @@ public class ArraysAndHashing {
         return 0;
     }
 
+    public void rotate(int[] nums, int k) {
 
+        // Normalizing k to ensure that is not greater than array length
+        k = k % nums.length;
+
+        // if K is 0, the array does not need to be rotated.
+        if (k == 0 || nums.length == 1) {
+            return;
+        }
+
+        // temp array needed for rotation
+        int[] temp = new int[nums.length];
+
+        //  Calculating the new index for each element and placing it in the temp array.
+        for (int i = 0; i < nums.length; i++) {
+            int newIndex = (i + k) %  nums.length; // New index after the rotation
+            temp[(i + k) % nums.length] = nums[i]; // Placing the element at its new index in the temp array
+        }
+
+        // Copying the rotated elements from temp back into the original array
+        for (int i = 0; i < nums.length; i++) {
+
+            nums[i] = temp[i]; // Copies the element from temp to nums at the same index
+        }
+
+    }
 }
+
+
