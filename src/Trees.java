@@ -55,7 +55,16 @@ public class Trees {
 
     public int maxDepth(TreeNode root) {
 
-        return 0;
+
+        // Base case: if the current node is null, it means we've reached a
+        // leaf node's child or the tree is empty, so return a depth of 0
+        if(root == null) {
+            return 0;
+        }
+
+        // Recursively calculate the maximum depth of the left subtree
+        // and the right subtree, and add 1 to account for the current node
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
     // Given the roots of two binary trees p and q,

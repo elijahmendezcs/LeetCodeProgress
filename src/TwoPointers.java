@@ -9,40 +9,32 @@ public class TwoPointers {
 
     public boolean isPalindrome(String s) {
 
-        // Declare an empty string, this will only hold letters and digits
-        String fixed_string = "";
+        StringBuilder clean = new StringBuilder();
 
-        // Iterating through each character in the input string
         for (char c : s.toCharArray()) {
-            // Checks if the character is a letter or digit
+
             if(Character.isDigit(c) || Character.isLetter(c)) {
 
-                // If it is, add it to the fixed string
-                // This removes any spaces, punctuation, and special characters
-                // Because we only checked for digits and letters
-                fixed_string += c;
+                clean.append(Character.toLowerCase());
             }
+
         }
 
-        // Now turn the string into lower case for best comparison results
-        fixed_string = fixed_string.toLowerCase();
 
+        String fixedString = clean.toString();
 
-        // Now the two pointer method.
         int a = 0;
-        int b = fixed_string.length() - 1;
-
-        while (a <= b) {
+        int b = fixedString.length() - 1;
 
 
-            if(fixed_string.charAt(a) != fixed_string.charAt(b)) {
-                // If the characters are not equal, it is not a palindrome so return false.
+        while(a <= b) {
+
+            if (fixedString.charAt(a) != fixedString.charAt(b))  {
                 return false;
             }
 
             a++;
             b--;
-
         }
 
         return true;
