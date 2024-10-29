@@ -15,7 +15,7 @@ public class TwoPointers {
 
             if(Character.isDigit(c) || Character.isLetter(c)) {
 
-                clean.append(Character.toLowerCase());
+                clean.append(Character.toLowerCase(c));
             }
 
         }
