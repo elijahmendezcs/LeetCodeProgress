@@ -12,20 +12,18 @@ public class Stacks {
     public boolean isValid(String s) {
         Stack<Character> x = new Stack<>();
         for(char c : s.toCharArray()) {
-            if(c == '(' || c == '{' || c == '[') {
+            if(c == '{' || c == '[' || c == '(') {
                 x.push(c);
             } else {
                 if(x.isEmpty()) {
                     return false;
                 }
                 char top = x.pop();
-                if((c == ')' && top != '(') || (c == '}'&& top != '{') || (c == ']' && top != '[')) {
+                if((c == '}' && top != '{') || (c == ']' && top != '[') || (c == ')' && top != '(')) {
                     return false;
                 }
             }
         }
         return x.isEmpty();
     }
-
-
 }
