@@ -9,34 +9,23 @@ public class TwoPointers {
 
     public boolean isPalindrome(String s) {
 
-        StringBuilder clean = new StringBuilder();
-
-        for (char c : s.toCharArray()) {
-
+        StringBuilder x = new StringBuilder();
+        for(char c : s.toCharArray()) {
             if(Character.isDigit(c) || Character.isLetter(c)) {
-
-                clean.append(Character.toLowerCase(c));
+                x.append(Character.toLowerCase(c));
             }
-
         }
-
-
-        String fixedString = clean.toString();
-
+        String fixedString = x.toString();
         int a = 0;
         int b = fixedString.length() - 1;
 
-
-        while(a <= b) {
-
-            if (fixedString.charAt(a) != fixedString.charAt(b))  {
+        while (a<=b) {
+            if(fixedString.charAt(a) != fixedString.charAt(b)) {
                 return false;
             }
-
             a++;
             b--;
         }
-
         return true;
     }
 

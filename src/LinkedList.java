@@ -49,7 +49,26 @@ public class LinkedList {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-        return list1;
+        ListNode dummy = new ListNode(0);
+        ListNode node = dummy;
+
+        // Base case to see if the list have values.
+        while (list1  != null && list2 != null) {
+            if(list1.val < list2.val) {
+                node.next = list1;
+                list1 = list1.next;
+            } else {
+                node.next = list2;
+                list2 = list2.next;
+            }
+            node = node.next;
+        }
+        if(list1 != null) {
+            node.next = list1;
+        } else {
+            node.next = list2;
+        }
+        return dummy.next;
     }
 
     // You are given the head of a singly linked-list.
