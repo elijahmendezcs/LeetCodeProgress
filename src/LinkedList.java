@@ -30,7 +30,6 @@ public class LinkedList {
         // This is going to iterate through the list until head becomes null,
         // which is at the end of the list
         while (head != null) {
-
             // This will repeat the process of bring null in front of prev until
             // it iterates through the whole list
             ListNode next = head.next;
