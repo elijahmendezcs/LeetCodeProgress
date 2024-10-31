@@ -69,17 +69,17 @@ public class ArraysAndHashing {
         HashMap<Integer, Integer> x = new HashMap<>();
 
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
             // Calculating the complement (this is the number needed to reach the target)
             int comp = target - nums[i];
 
             // This checks if the complement is already in the map.
-            if(x.containsKey(comp)) {
+            if (x.containsKey(comp)) {
 
                 // If the complement is in the map,
                 // return the indices of the complement and the current number
-                return new int[] {x.get(comp), i};
+                return new int[]{x.get(comp), i};
             }
 
             // If it is not found in the Map, this adds the number and the index to the map.
@@ -113,7 +113,7 @@ public class ArraysAndHashing {
             String sortedString = new String(chars);
 
             // If the HashMap does not already contain the String
-            if(!x.containsKey(sortedString)) {
+            if (!x.containsKey(sortedString)) {
 
                 // Added the string into the HashMap
                 x.put(sortedString, new ArrayList<>());
@@ -190,7 +190,7 @@ public class ArraysAndHashing {
 
         //  Calculating the new index for each element and placing it in the temp array.
         for (int i = 0; i < nums.length; i++) {
-            int newIndex = (i + k) %  nums.length; // New index after the rotation
+            int newIndex = (i + k) % nums.length; // New index after the rotation
             temp[(i + k) % nums.length] = nums[i]; // Placing the element at its new index in the temp array
         }
 
@@ -200,7 +200,27 @@ public class ArraysAndHashing {
             nums[i] = temp[i]; // Copies the element from temp to nums at the same index
         }
 
+
     }
+
+    public int removeDuplicates(int[] nums) {
+
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        int k = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[k - 1]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+
+
 }
+
 
 
