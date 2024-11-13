@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class TwoPointers {
@@ -28,7 +29,6 @@ public class TwoPointers {
         }
         return true;
     }
-
 
     // Given an integer array nums,
     // return all the triplets [nums[i], nums[j], nums[k]] where nums[i] + nums[j] + nums[k] == 0,
@@ -66,4 +66,19 @@ public class TwoPointers {
             b--;
         }
     }
+
+    public static void main(String[] args) {
+        int[] numbers = {2, 4, 6, 8, 10, 12, 14, 16};
+
+        int target = 10;
+
+        int result = Arrays.binarySearch(numbers, target);
+
+        if (result >= 0) {
+            System.out.println("Element found at index: " + result);
+        } else {
+            System.out.println("Element not found. Insertion point: " + (-result - 1));
+        }
+    }
+
 }
