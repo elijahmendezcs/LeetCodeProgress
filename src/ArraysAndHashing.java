@@ -200,7 +200,6 @@ public class ArraysAndHashing {
             nums[i] = temp[i]; // Copies the element from temp to nums at the same index
         }
 
-
     }
 
     public int removeDuplicates(int[] nums) {
@@ -216,6 +215,8 @@ public class ArraysAndHashing {
         }
         return k;
     }
+
+    // HELLO MY NAME IS ELIJAH MENDEZ
 
 
 }
