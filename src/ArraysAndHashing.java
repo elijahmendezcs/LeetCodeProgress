@@ -9,21 +9,18 @@ public class ArraysAndHashing {
     public boolean hasDuplicate(int[] nums) {
 
         HashSet<Integer> x = new HashSet<Integer>();
-
         for (int i = 0; i < nums.length; i++) {
-
             if (x.contains(nums[i])) {
 
                 return true;
             }
-
             x.add(nums[i]);
         }
-
         return false;
 
     }
 
+    
 
     // Given two strings s and t, return true
     // if the two strings are anagrams of each other, otherwise return false.
@@ -216,9 +213,25 @@ public class ArraysAndHashing {
         return k;
     }
 
+    public int oneSum(int[] nums) {
+
+        int ans = 0;
+        for(int i = 0; i < nums.length; i++) {
+            ans += nums[i];
+        }
+        return ans;
+    }
+
+    public boolean sorted(int[] nums) {
+
+        if(nums.length == 0) {
+            return false;
+        }
+
+        
+    }
+
     // HELLO MY NAME IS ELIJAH MENDEZ
-
-
 }
 
 
