@@ -228,6 +228,7 @@ public class ArraysAndHashing {
             return false;
         }
 
+        return true;
         
     }
 
